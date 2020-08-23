@@ -1,0 +1,71 @@
+.theInput{
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: 30%;
+  }
+
+.label{
+  width: 30%;
+  color: #0e0d0d;
+  font-weight: bold; 
+}
+.field{
+  display: flex;
+  color: #0e0d0d;
+  font-weight: bold; 
+}
+.field label{
+  display: flex;
+  width: 120px;
+}
+.field label::after{
+  content: ":";
+}
+.field input{
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.ok {
+  background-color: #5077aa; /* Green */
+  border: none;
+  color: white;
+  size: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 60px;
+  margin-top: 10px;
+  height: 40px;
+  border-radius: 4px;
+  margin-left: 35px;
+}
+.ok:hover{
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 2px solid black;
+}
+
+@media(max-width:500px){
+  .ok{
+    width: 30px;
+    height: 17px;
+    font-size: 12px;
+    border-radius:0
+  }
+  .label{
+    width: 100%;
+  }
+  .theInput{
+    flex-wrap: wrap;
+    flex-direction: column;    
+    width: 100px;
+    margin-right: 10px;
+  }
+}

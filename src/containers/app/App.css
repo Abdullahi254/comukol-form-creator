@@ -1,0 +1,27 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  background-image:url('../../assets/bg.jpg');
+}
+
+.row{
+  position: fixed; /* Stay in place */
+    left: 24%;
+    top: 10%;
+    width: 660px; /* Full width */
+    min-height: 50%; /* Full height */
+    max-height: 70%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #ffffff; /* Fallback color */
+    padding-top: 60px;
+    box-shadow: 10px 23px 6px;
+    border-radius: 12px;
+}
+
+@media(max-width:920px){
+  .row{
+    left: 3%;
+    width: auto;
+
+  }
+}

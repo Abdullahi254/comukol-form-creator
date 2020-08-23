@@ -1,0 +1,29 @@
+.row{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    margin-bottom: 60px;
+}
+.next, .del{
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+    background-color: green;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.next:hover, .del:hover{
+    background-color: #FFFFFF;
+    color:#000000
+}
+
+.del{
+    background-color: red;
+}
+
+@media(max-width:500px){
+    .row{
+        margin-bottom: 80px;
+    }
+}
