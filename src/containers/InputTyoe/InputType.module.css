@@ -76,10 +76,9 @@ input{
     border-radius: 4px;
 }
 
-@media(max-width:500px){
+@media(max-width:920px){
     .inputType{
-        flex-direction: column;
-        width: 150px;
+        width: 100%;
     }
     textarea{
         height: 100px;
@@ -88,11 +87,17 @@ input{
         width: 100%;
     }
     .ok{
-        width: 30px;
-        font-size: 12px;
-        border-radius:0
+        height: 32px;
+        width: 45px;
     }
-    .selection{
-        flex-direction: column;
+    .selection label{
+        width: 40%;
+    }
+    .selectCss{
+        width: 190px;
+    }
+    .selectedInput{
+        width: 270px;
+        margin-left: 0;
     }
 }

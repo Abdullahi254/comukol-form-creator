@@ -9,8 +9,10 @@ class Row extends Component{
             <div className={classes.row}>
                 <FieldName/>
                 <InputType/>
-                <button onClick = {this.props.next} className={classes.next}>next</button>
+                <div className={classes.buttons}>
                 <button className={classes.del} onClick={this.props.del}>Del</button>
+                    <button onClick = {this.props.next} className={classes.next}>next</button>
+                </div>
             </div>
         )
     }

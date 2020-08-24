@@ -26,7 +26,7 @@ class FieldName extends Component {
         <div className={classes.field}>
          {name}
         </div>
-        <button onClick={this.changeElement} className={classes.ok}>{this.state.input?'ok':'edit'}</button>
+        <button onClick={this.changeElement} className={classes.ok}>{this.state.input?'OK':'EDIT'}</button>
       </div>
     );
   }  

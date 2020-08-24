@@ -47,7 +47,7 @@ class InputType extends Component{
                 <div className={classes.selectedInput} style={{display:this.state.selected?'block':'none'}}>
                 {inputType}
                 </div>
-                <button onClick={this.selectOption} className={classes.ok}>{this.state.selected?'edit':'ok'}</button>
+                <button onClick={this.selectOption} className={classes.ok}>{this.state.selected?'EDIT':'OK'}</button>
             </div>
         )
     }

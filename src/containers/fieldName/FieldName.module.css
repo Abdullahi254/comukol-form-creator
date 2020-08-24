@@ -11,13 +11,12 @@
   font-weight: bold; 
 }
 .field{
-  display: flex;
   color: #0e0d0d;
   font-weight: bold; 
 }
 .field label{
-  display: flex;
-  width: 120px;
+  display: inline-block;
+  width: 110px;
 }
 .field label::after{
   content: ":";
@@ -40,7 +39,7 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  width: 60px;
+  width: 50px;
   margin-top: 10px;
   height: 40px;
   border-radius: 4px;
@@ -52,20 +51,21 @@
   border: 2px solid black;
 }
 
-@media(max-width:500px){
-  .ok{
-    width: 30px;
-    height: 17px;
-    font-size: 12px;
-    border-radius:0
-  }
-  .label{
+@media(max-width:920px){
+  .theInput{
     width: 100%;
   }
-  .theInput{
-    flex-wrap: wrap;
-    flex-direction: column;    
-    width: 100px;
-    margin-right: 10px;
+  .label{
+    width: 40%;
+  }
+  .field label{
+    width: 239px;
+    text-align: center;
+  }
+  .field input{
+    width: 120px;
+  }
+  .ok{
+    height: 32px;  
   }
 }

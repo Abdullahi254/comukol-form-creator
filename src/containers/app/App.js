@@ -8,26 +8,24 @@ class App extends Component {
   }
   displayNextRow = ()=>{
     let rows  = [...this.state.rows]
-    let lastElem = rows.slice(-1)[0]
-    if (lastElem){
-      rows.push(lastElem+1)
-    }
-    else rows.push(0)
+    rows.push(0)
    this.setState({
      rows
    })
   }
+
  del = (i)=>{
+  console.log(i)
   let rows  = [...this.state.rows]
   rows.splice(i,1)
-  this.setState(
+  this.setState({
     rows
-  )
+  })
  }
   render(){
     let rows = [...this.state.rows]
     let newrows = rows.map((i,index)=>{
-      return <Row next= {this.displayNextRow} key={index} del={(index)=>this.del(index)}/>
+      return <Row next= {this.displayNextRow} key={index} del={()=>this.del(index)}/>
     })
     return(
       <div className="App">
