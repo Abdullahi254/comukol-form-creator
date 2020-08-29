@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
 import classes from  './FieldName.module.css';
+// import {getLabel} from '../../store/actionCreators/formActions'
+import {connect} from 'react-redux'
 
 class FieldName extends Component {
+  componentDidMount(){
+    console.log(this.props)
+  }
   state = {
     fieldName: null,
-    input:true
+    input:true,
   }
   getInputName= (event)=>{
     this.setState({
       fieldName:event.target.value
     })
   }
-  changeElement = ()=>{
+
+  toEdit = ()=>{
     this.setState({
-      input:!this.state.input
+      input:false
+    })
+   let fieldName = this.state.fieldName
+   if(fieldName &&(fieldName !== this.props.labels[this.props.labels.length - 1])){
+      this.props.getLabel(fieldName,this.props.labelId)
+   }
+  }
+
+  toOk = ()=>{
+    this.setState({
+      input: true
     })
   }
+
   render(){
-    let name = this.state.input?<input onChange={(event)=>this.getInputName(event)}/>:<label>
+
+    let name = this.state.input?<input onChange={(event)=>this.getInputName(event)} required/>:<label>
       {this.state.fieldName}
     </label>
     return (
@@ -26,10 +44,25 @@ class FieldName extends Component {
         <div className={classes.field}>
          {name}
         </div>
-        <button onClick={this.changeElement} className={classes.ok}>{this.state.input?'OK':'EDIT'}</button>
+        {this.state.input?<button className={classes.ok} onClick={this.toEdit}>OK</button>:<button className={classes.ok} onClick={this.toOk}>EDIT</button>}
+        {/* <button onClick={this.changeElement} className={classes.ok}>{this.state.input?'OK':'EDIT'}</button> */}
       </div>
     );
   }  
 }
 
-export default FieldName;
+const mapStateToProps = state=>{
+  return{
+    labels:state.labels
+  }
+}
+const mapsActionToProps = dispatch=>{
+  return{
+    getLabel: (label,id)=>{dispatch({
+      type:'GET_LABEL',
+      label,
+      id
+  })}
+  }
+}
+export default connect(mapStateToProps,mapsActionToProps)(FieldName);

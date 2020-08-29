@@ -7,8 +7,8 @@ class Row extends Component{
     render(){
         return( 
             <div className={classes.row}>
-                <FieldName/>
-                <InputType/>
+                <FieldName labelId={this.props.labelId}/>
+                <InputType inputId={this.props.inputId}/>
                 <div className={classes.buttons}>
                 <button className={classes.del} onClick={this.props.del}>Del</button>
                     <button onClick = {this.props.next} className={classes.next}>next</button>

@@ -1,25 +1,38 @@
 import React,{Component} from 'react'
 import classes from './CheckBox.module.css'
-import FieldName from '../fieldName/FieldName'
-
+import Aux from '../../hoc/auxillary'
 class CheckBox extends Component{
-   
+    state = {
+        options:null
+    }
+    toInputs = ()=>{
+        
+    }
     render(){
-        let outPut = []
-        for(let i = 0; i<this.props.howMany; i++){
-            outPut.push(i)
-        }
-        let outputs = outPut.map((i)=>{
-            return <div className={classes.checkBox} key={i}>
-                <div>
-                <FieldName/>
-                </div>
-                <input type='checkbox'/>
-            </div>
-        })
+        let output = <Aux>
+            <p>HOW MANY CHECKBOX</p>
+                <select className={classes.selectCss}>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                </select>
+                <button onClick={this.toInputs}>select</button>
+        </Aux>
         return(
-            <div>
-                {outputs}
+            <div className={classes.container}>
+                {output}
+                <input>
+                </input>
+                <input>
+                </input>
+                <div>
+                <button>ok</button>
+                </div>
+               {/* <label>MALE</label>
+               <input type='checkbox'/>  */}
+               {/* <label>FEMALE</label>
+               <input type='checkbox'/>  */}
             </div>
         )
     }

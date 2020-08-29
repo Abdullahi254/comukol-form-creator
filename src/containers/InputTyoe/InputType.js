@@ -1,10 +1,11 @@
 import React,{Component} from 'react'
 import classes from './InputType.module.css'
 import CheckBox from '../CheckBox/CheckBox'
+import {connect} from 'react-redux'
 
 class InputType extends Component{
     state = {
-        optionType:null,
+        optionType:'text',
         selected:false,
     }
     getOption = (event)=>{
@@ -14,7 +15,13 @@ class InputType extends Component{
     }
     selectOption = ()=>{
         this.setState({
-            selected:!this.state.selected
+            selected: true
+        })
+        this.props.getInputType(this.state.optionType,this.props.inputId)
+    }
+    editOption = ()=>{
+        this.setState({
+            selected: false
         })
     }
     render(){
@@ -47,9 +54,19 @@ class InputType extends Component{
                 <div className={classes.selectedInput} style={{display:this.state.selected?'block':'none'}}>
                 {inputType}
                 </div>
-                <button onClick={this.selectOption} className={classes.ok}>{this.state.selected?'EDIT':'OK'}</button>
+                {this.state.selected?<button className={classes.ok} onClick={this.editOption}> EDIT</button>:<button className={classes.ok} onClick={this.selectOption}>OK</button>}
             </div>
         )
     }
 }
-export default InputType
+const mapsActionToProps = (dispatch)=>{
+    return{
+        getInputType:(type,id)=>dispatch({
+            type:'GET_INPUT_TYPE',
+            inputType:type,
+            id
+        })
+    }
+}
+
+export default connect(null,mapsActionToProps)(InputType)
