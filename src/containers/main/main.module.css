@@ -47,7 +47,7 @@
     display: inline-block;
     cursor: pointer;
     position: relative;
-    margin-top: 100px;
+    margin-top: 64px;
   }
   .btn span {
     position: relative;
@@ -97,7 +97,12 @@
   
   @media(max-width:920px){
     .row{
-      left: 3%;
       width: 340px;
+    }
+  }
+
+  @media(max-width:340px){
+    .row{
+      width: 300px;
     }
   }

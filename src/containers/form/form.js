@@ -39,7 +39,7 @@ class Form extends Component{
                 <form onSubmit={(event)=>this.convertToPdf(event)} ref={ref}> 
                     {outPuts}
                 </form>
-                <Pdf targetRef={ref} filename='comucol-form.pdf' x={7} y={35}>
+                <Pdf targetRef={ref} filename='comucol-form.pdf' x={7} y={40}>
                     {
                         ({toPdf})=>(
                             <button onClick={toPdf} className={classes.button}>PRINT</button>
