@@ -45,7 +45,6 @@ class FieldName extends Component {
          {name}
         </div>
         {this.state.input?<button className={classes.ok} onClick={this.toEdit}>OK</button>:<button className={classes.ok} onClick={this.toOk}>EDIT</button>}
-        {/* <button onClick={this.changeElement} className={classes.ok}>{this.state.input?'OK':'EDIT'}</button> */}
       </div>
     );
   }  

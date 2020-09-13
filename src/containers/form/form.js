@@ -21,12 +21,46 @@ class Form extends Component{
         let filteredLabels = this.props.labels.filter(label=>{
             return label !==' '
         })
+        let filterCheckBoxLabels = this.props.checkBoxLabels.filter(instance=>{
+            return instance[0] !==' '
+        })
+        let cleanCheckBoxLabels = filterCheckBoxLabels.map(instace=>{
+            return(
+                instace.filter(element=>element !==' ')
+            )
+        })
+        let checkBox = []
+        let elements = []
+        for(let i=0;i<cleanCheckBoxLabels.length;i++){
+            for(let j=0; j<cleanCheckBoxLabels[i].length; j++){
+                 elements.push(
+                    <Aux key={j}>
+                        <br/>
+                        <label className={classes.checkboxLabel}>{cleanCheckBoxLabels[i][j]}</label>
+                        <input type='checkbox' className={classes.checkBox} />
+                    </Aux>
+                 )
+            }
+            checkBox.push(elements)
+            elements = []
+        }
         let inputTypes = this.props.inputTypes.filter(input=>{
             return input !==' '
         })
         let outPuts = filteredLabels.map((label,index)=>{
+            if(inputTypes[index]==='checkbox'){
+                let output = checkBox[0]
+                checkBox.shift()
+                return(
+                    <Aux key={index}>
+                        <Label>{label}</Label>
+                        {output}
+                    </Aux>    
+                )
+            }
+            
             return(
-                <Aux>
+                <Aux key={index}>
                     <Label>{label}</Label>
                     {inputTypes[index]==='text-area'?<TextArea/>:<Input type={inputTypes[index]}/>}
                 </Aux>
@@ -53,7 +87,8 @@ class Form extends Component{
 const stateToProps = state=>{
     return{
         labels:state.labels,
-        inputTypes: state.inputTypes
+        inputTypes: state.inputTypes,
+        checkBoxLabels:state.checkboxLabels
     }
 }
 export default connect(stateToProps,null)(Form) 

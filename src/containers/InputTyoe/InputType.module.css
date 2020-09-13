@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     width: 60%;
-    max-height: 50px;
+    flex:1;
 }
 .ok{
     display: inline-block;
@@ -21,7 +21,11 @@
     width: 45px;
     border-radius: 4px;
 }
-
+.ok:hover{
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 2px solid black;
+  }
 .selectedInput{
     width: 80%;
     text-align: center;
@@ -34,9 +38,11 @@
 .labelStyle{
     width: 30%;
     color: #0e0d0d;
-    font-weight: bold; 
+    font-weight: bold;
+    margin-top: 12px;
 }
 .selectCss{
+    height: 50px;
     width: 70%;
     font-size: 16px;
     font-family: sans-serif;
@@ -79,25 +85,28 @@ input{
 @media(max-width:920px){
     .inputType{
         width: 100%;
+        flex-direction: column;
     }
     textarea{
         height: 100px;
     }
+    .selection{
+        flex-direction: column;
+        margin-bottom: 12px;
+    }
     .labelStyle{
-        width: 100%;
+        margin: auto;
+    }
+    .selectCss{
+        margin: auto;
     }
     .ok{
         height: 32px;
         width: 45px;
-    }
-    .selection label{
-        width: 40%;
-    }
-    .selectCss{
-        width: 190px;
+        margin: auto;
     }
     .selectedInput{
-        width: 270px;
-        margin-left: 0;
+       margin: auto;
+       margin-bottom: 12px;
     }
 }

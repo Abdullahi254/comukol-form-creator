@@ -37,3 +37,15 @@
     /* icon size, then gradient */
     background-size: .65em auto, 100%;
 }
+
+.select{
+    padding: 10px;
+    border-radius: 4px;
+    border: solid #000000 1px;
+}
+
+/* @media(max-width:920px){
+    .container{
+        width: 340px;
+    }
+} */

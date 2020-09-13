@@ -5,7 +5,7 @@ class Label extends Component {
     render() {
         return (
             <Aux>
-                <label style={{fontFamily:'ariel',fontWeight:'bold'}}>{this.props.children}</label>
+                <label style={{fontFamily:'ariel',fontWeight:'bold',fontSize:'20px'}}>{this.props.children}</label>
             </Aux>
         );
     }

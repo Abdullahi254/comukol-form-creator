@@ -1,13 +1,13 @@
 const formState = {
     labels:[],
-    inputTypes:[]
+    inputTypes:[],
+    checkboxLabels:[]
 
 }
 
 const reducer = (state=formState,action)=>{
     switch(action.type){
         case 'GET_LABEL':
-            console.log(action.id)
             let newLabels = [...state.labels]
             if(newLabels.length<=action.id){
                 for(let i=0; i<action.id+1; i++){
@@ -22,7 +22,6 @@ const reducer = (state=formState,action)=>{
             }
             break;
         case 'GET_INPUT_TYPE':
-            console.log(action.id)
             let newInputs = [...state.inputTypes]
             if(newInputs.length<=action.id){
                 for(let i=0; i<action.id+1; i++){
@@ -33,6 +32,21 @@ const reducer = (state=formState,action)=>{
             state = {
                 ...state,
                 inputTypes:newInputs
+            }
+            break;
+        case 'GET_CHECKBOX_LABEL':
+            let totaList = [...state.checkboxLabels]
+            if(totaList.length<=action.id){
+                for(let i=0; i<action.id+1; i++){
+                    totaList.push([' ',' ',' ',' ',' '])
+                }
+            }
+            let instanceList = totaList[action.id]
+            instanceList.splice(action.instanceId,1,action.labelName)
+            totaList.splice(action.id,1,instanceList)
+            state = {
+                ...state,
+                checkboxLabels:totaList
             }
             break;
         default:
